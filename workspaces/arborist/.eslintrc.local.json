@@ -1,0 +1,10 @@
+{
+  "ignorePatterns": [
+    "test/fixtures/",
+    "!test/fixtures/*.js"
+  ],
+  "rules": {
+    "max-len": "off",
+    "no-shadow": "off"
+  }
+}
