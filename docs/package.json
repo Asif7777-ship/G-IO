@@ -1,0 +1,59 @@
+{
+  "name": "docs",
+  "description": "The npm cli documentation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "preversion": "npm test",
+    "postversion": "git push origin --follow-tags",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "rebuild:cmark-gfm": "node -e \"require('cmark-gfm')\" || npm rebuild cmark-gfm --no-ignore-scripts",
+    "build": "npm run rebuild:cmark-gfm && node bin/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/cli.git",
+    "directory": "docs"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@npmcli/fs": "^2.1.0",
+    "cmark-gfm": "^0.9.0",
+    "front-matter": "^4.0.2",
+    "jsdom": "^18.1.0",
+    "marked-man": "^0.7.0",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^3.0.1",
+    "@npmcli/promise-spawn": "^3.0.0",
+    "@npmcli/template-oss": "3.5.0",
+    "tap": "^16.0.1",
+    "which": "^2.0.2"
+  },
+  "author": "GitHub Inc.",
+  "license": "ISC",
+  "files": [
+    "bin/",
+    "lib/",
+    "nav.yml"
+  ],
+  "engines": {
+    "node": "^12.13.0 || ^14.15.0 || >=16.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "distPaths": [
+      "bin/",
+      "lib/",
+      "nav.yml"
+    ],
+    "version": "3.5.0"
+  }
+}
