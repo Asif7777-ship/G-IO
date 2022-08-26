@@ -1,0 +1,4 @@
+[build]
+  base = "docs"
+  command = "node dockhand.js"
+  publish = "output"
